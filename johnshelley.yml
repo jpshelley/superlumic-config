@@ -8,11 +8,6 @@
       homebrew_cask: name={{item}} state=present
       with_items:
         - spotify
-        - sketch
-        - imageoptim
-        - imagealpha
-        - sketch-toolbox
-        - littleipsum1
     - name: create ssh directory
       become: yes
       file:
@@ -28,7 +23,7 @@
       copy:
         src: files/ssh_config
         dest: /etc/ssh_config
-    - name: personal ssh config
+    - name: personal ssh config in another location
       become: yes
       copy:
         src: files/ssh_config
@@ -42,16 +37,16 @@
         state=present
         create=true
       with_items:
-        - { regexp: '^nickl', line: 'nickl ALL=(ALL) NOPASSWD: ALL' }
+        - { regexp: '^johnshelley', line: 'johnshelley ALL=(ALL) NOPASSWD: ALL' }
 
   roles:
     - profile-all
     - profile-developer
 
   vars:
-    - computername: mimas
-    - git_user_name: Nick Lauryssen
-    - git_user_email: nick.lauryssen@kunstmaan.be
+    - computername: johnshelley 
+    - git_user_name: John Shelley 
+    - git_user_email: john.shelley.p@gmail.com 
     - sublime_packages:
         - dest: "SideBarEnhancements"
           repo: "https://github.com/titoBouzout/SideBarEnhancements"
@@ -95,7 +90,7 @@
       - domain: 'com.apple.dock'
         key: 'orientation'
         type: string
-        value: left
+        value: bottom 
       - domain: 'NSGlobalDomain'
         key: 'NSTableViewDefaultSizeMode'
         type: integer
@@ -112,10 +107,6 @@
         key: 'InitialKeyRepeat'
         type: integer
         value: 15
-      - domain: 'com.apple.menuextra.clock'
-        key: 'DateFormat'
-        type: string
-        value: EEE MMM d  HH:mm
       - domain: 'com.apple.menuextra.battery'
         key: 'ShowPercent'
         type: string
@@ -123,7 +114,7 @@
       - domain: 'com.apple.finder'
         key: 'FXPreferredViewStyle'
         type: string
-        value: "clmv"
+        value: "icnv"
       - domain: 'NSGlobalDomain'
         key: 'NSNavPanelExpandedStateForSaveMode'
         type: boolean
@@ -158,5 +149,25 @@
         value: true
       - domain: 'com.apple.print.PrintingPrefs'
         key: 'Quit When Finished'
+        type: boolean
+        value: true
+      - domain: 'com.apple.Safari'
+        key: 'IncludeInternalDebugMenu'
+        type: boolean
+        value: true
+      - domain: 'com.apple.Safari'
+        key: 'IncludeDevelopMenu'
+        type: boolean
+        value: true
+      - domain: 'com.apple.Safari'
+        key: 'WebKitDeveloperExtrasEnabledPreferenceKey'
+        type: boolean
+        value: true
+      - domain: 'com.apple.Safari'
+        key: 'com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled'
+        type: boolean
+        value: true
+      - domain: 'NSGlobalDomain'
+        key: 'WebKitDeveloperExtras'
         type: boolean
         value: true
