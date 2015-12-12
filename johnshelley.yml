@@ -8,6 +8,10 @@
       homebrew_cask: name={{item}} state=present
       with_items:
         - spotify
+    - name: install developer brew applications
+      homebrew: name={{item}} state=latest
+      with_items:
+        - ffmpeg
     - name: create ssh directory
       become: yes
       file:
@@ -27,7 +31,7 @@
       become: yes
       copy:
         src: files/ssh_config
-        dest: /etc/ssh/ssh_config        
+        dest: /etc/ssh/ssh_config
     - name: add to sudoers without password
       become: yes
       lineinfile: >
@@ -44,9 +48,9 @@
     - profile-developer
 
   vars:
-    - computername: johnshelley 
-    - git_user_name: John Shelley 
-    - git_user_email: john.shelley.p@gmail.com 
+    - computername: johnshelley
+    - git_user_name: John Shelley
+    - git_user_email: john.shelley.p@gmail.com
     - sublime_packages:
         - dest: "SideBarEnhancements"
           repo: "https://github.com/titoBouzout/SideBarEnhancements"
@@ -90,7 +94,7 @@
       - domain: 'com.apple.dock'
         key: 'orientation'
         type: string
-        value: bottom 
+        value: bottom
       - domain: 'NSGlobalDomain'
         key: 'NSTableViewDefaultSizeMode'
         type: integer
