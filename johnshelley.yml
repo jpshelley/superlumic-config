@@ -1,9 +1,13 @@
 ---
 
-- hosts: 127.0.0.1
+- hosts: localhost
   connection: local
 
   tasks:
+    - name: install node
+      homebrew: name={{item}} state=latest
+      with_items:
+        - node
     - name: install personal cask applications
       homebrew_cask: name={{item}} state=present
       with_items:
@@ -141,10 +145,6 @@
         value: 0
       - domain: 'NSGlobalDomain'
         key: 'NSQuitAlwaysKeepsWindows'
-        type: boolean
-        value: false
-      - domain: 'NSGlobalDomain'
-        key: 'ApplePressAndHoldEnabled'
         type: boolean
         value: false
       - domain: 'com.apple.desktopservices'
