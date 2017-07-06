@@ -10,7 +10,7 @@
     - profile-developer
 
   vars:
-    - computername: johnshelley
+    - computername: jshelley17m
     - git_user_name: John Shelley
     - git_user_email: john.shelley.p@gmail.com
     - osx_defaults:
