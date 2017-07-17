@@ -106,3 +106,6 @@
         key: 'WebKitDeveloperExtras'
         type: boolean
         value: true
+      - domain: 'com.apple.finder'
+        key: 'AppleShowAllFiles'
+        value: true
