@@ -65,7 +65,7 @@
       - domain: 'com.apple.dock'
         key: 'tilesize'
         type: float
-        value: 32
+        value: 64
       - domain: 'com.apple.dock'
         key: 'autohide-time-modifier'
         type: int
