@@ -108,4 +108,5 @@
         value: true
       - domain: 'com.apple.finder'
         key: 'AppleShowAllFiles'
+        type: boolean
         value: true
